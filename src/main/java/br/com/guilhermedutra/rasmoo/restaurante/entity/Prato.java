@@ -23,14 +23,6 @@ public class Prato {
 
     public Prato() {}
 
-    public Prato(Long id, String nome, String descricao, boolean disponivel, BigDecimal valor) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.disponivel = disponivel;
-        this.valor = valor;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
