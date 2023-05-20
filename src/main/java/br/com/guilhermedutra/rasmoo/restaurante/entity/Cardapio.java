@@ -14,6 +14,8 @@ public class Cardapio {
 
     private String nome;
     private String descricao;
+    @ManyToOne
+    private Categoria categoria;
     private boolean disponivel;
     private BigDecimal valor;
 
@@ -70,9 +72,17 @@ public class Cardapio {
         this.dataDeRegistro = dataDeRegistro;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Prato{id: " + getId() + ", nome: " + getNome() + ", descricao: " + getDescricao() + ", disponivel: " + isDisponivel() +
-                ", valor: " + getValor() + ", dataDeRegistro: " + getDataDeRegistro() + "}";
+                "Categoria(s): " + getCategoria() + ", valor: " + getValor() + ", dataDeRegistro: " + getDataDeRegistro() + "}";
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 public class CardapioDao {
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public CardapioDao(EntityManager entityManager){
         this.entityManager = entityManager;
