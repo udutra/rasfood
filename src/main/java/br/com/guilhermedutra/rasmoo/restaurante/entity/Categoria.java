@@ -12,7 +12,12 @@ public class Categoria {
 
     private String nome;
 
+
     public Categoria() {
+    }
+
+    public Categoria(String nome){
+        setNome(nome);
     }
 
     public void setId(Integer id) {
@@ -33,6 +38,6 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria {id: " + getId() + ", nome: " + getNome();
+        return "Categoria{ id: " + getId() + ", nome: " + getNome() + "}";
     }
 }
