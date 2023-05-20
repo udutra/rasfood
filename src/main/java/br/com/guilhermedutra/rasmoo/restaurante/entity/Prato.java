@@ -73,7 +73,7 @@ public class Prato {
 
     @Override
     public String toString() {
-        return "Prato{ id:" + getId() + ", nome: " + getNome() + ", descricao: " + getDescricao() + ", disponivel: " + isDisponivel() +
+        return "Prato{id: " + getId() + ", nome: " + getNome() + ", descricao: " + getDescricao() + ", disponivel: " + isDisponivel() +
                 ", valor: " + getValor() + ", dataDeRegistro: " + getDataDeRegistro() + "}";
     }
 }
