@@ -1,23 +1,23 @@
 package br.com.guilhermedutra.rasmoo.restaurante.service.teste;
 
-import br.com.guilhermedutra.rasmoo.restaurante.dao.PratoDao;
-import br.com.guilhermedutra.rasmoo.restaurante.entity.Prato;
+import br.com.guilhermedutra.rasmoo.restaurante.dao.CardapioDao;
+import br.com.guilhermedutra.rasmoo.restaurante.entity.Cardapio;
 import br.com.guilhermedutra.rasmoo.restaurante.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
-public class PratoService {
+public class CardapioService {
 
     public static void main(String[] args) {
-        Prato risoto = new Prato();
+        Cardapio risoto = new Cardapio();
 
         risoto.setNome("Risoto de frutos do mar");
         risoto.setDescricao("Risoto acompanhado de lula, polvo e mariscos");
         risoto.setDisponivel(true);
         risoto.setValor(BigDecimal.valueOf(88.50));
 
-        Prato salmao = new Prato();
+        Cardapio salmao = new Cardapio();
 
         salmao.setNome("Salmão ao molho de maracuja");
         salmao.setDescricao("Salmão grelhado ao molho de maracuja");
@@ -26,7 +26,7 @@ public class PratoService {
 
         EntityManager entityManager = JPAUtil.getEntityManagerRasfood();
 
-        PratoDao pratoDao = new PratoDao(entityManager);
+        CardapioDao pratoDao = new CardapioDao(entityManager);
 
         entityManager.getTransaction().begin();
         pratoDao.cadastrar(risoto);
