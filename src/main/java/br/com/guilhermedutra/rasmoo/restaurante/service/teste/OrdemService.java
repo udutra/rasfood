@@ -25,6 +25,9 @@ public class OrdemService {
 
         OrdemDao ordemDao = new OrdemDao(entityManager);
 
+        Ordem ordem = ordemDao.consultarPorId(2);
+
+        System.out.println("Valor total: " + ordem.getValorTotal());
 
         System.out.println(ordemDao.consultarItensMaisVendidos());
 

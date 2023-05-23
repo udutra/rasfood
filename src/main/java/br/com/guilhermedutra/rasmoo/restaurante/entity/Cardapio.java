@@ -15,7 +15,7 @@ public class Cardapio {
 
     private String nome;
     private String descricao;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
     private boolean disponivel;
     private BigDecimal valor;
