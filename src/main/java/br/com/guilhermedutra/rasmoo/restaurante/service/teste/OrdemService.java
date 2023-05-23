@@ -20,24 +20,13 @@ public class OrdemService {
 
         CargaDeDadosUtil.cadastrarCategorias(entityManager);
         CargaDeDadosUtil.cadastrarProdutosCardapio(entityManager);
+        CargaDeDadosUtil.cadastrarClientes(entityManager);
+        CargaDeDadosUtil.cadastrarOrdensClientes(entityManager);
 
-        CardapioDao cardapioDao = new CardapioDao(entityManager);
-        ClienteDao clienteDao = new ClienteDao(entityManager);
         OrdemDao ordemDao = new OrdemDao(entityManager);
 
-        Endereco endereco = new Endereco("91254789", "Rua A", "apto 206", "POA", "RS");
 
-        Cliente felipe = new Cliente("14523685445", "Felipe");
-        felipe.addEndereco(endereco);
-
-        Ordem ordem = new Ordem(felipe);
-        ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultarPorId(1),2));
-        ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.consultarPorId(2),3));
-
-        clienteDao.cadastrar(felipe);
-        ordemDao.cadastrar(ordem);
-
-        System.out.println(ordem);
+        ordemDao.consultarItensMaisVendidos().forEach(item -> System.out.println("Item: " + item[0] + "\t\t\t- quantidade: " + item[1]));
 
         entityManager.getTransaction().commit();
         entityManager.close();

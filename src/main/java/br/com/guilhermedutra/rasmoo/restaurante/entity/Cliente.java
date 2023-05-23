@@ -12,15 +12,18 @@ public class Cliente {
     private String cpf;
     private String nome;
 
+    private String sobreNome;
+
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Endereco> enderecoList = new ArrayList<>();
 
     public Cliente() {
     }
 
-    public Cliente(String cpf, String nome) {
+    public Cliente(String cpf, String nome, String sobreNome) {
         this.cpf = cpf;
         this.nome = nome;
+        this.sobreNome = sobreNome;
     }
 
     public void addEndereco(Endereco endereco){
@@ -44,6 +47,14 @@ public class Cliente {
         this.nome = nome;
     }
 
+    public String getSobreNome() {
+        return sobreNome;
+    }
+
+    public void setSobreNome(String sobreNome) {
+        this.sobreNome = sobreNome;
+    }
+
     public List<Endereco> getEnderecoList() {
         return enderecoList;
     }
@@ -54,6 +65,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "cpf: " + getCpf() +", nome: " + getNome() + " , endereço: " + getEnderecoList();
+        return "cpf: " + getCpf() + ", nome: " + getNome() + ", sobrenome: " + getSobreNome() + " , endereço: " + getEnderecoList();
     }
 }
