@@ -1,6 +1,5 @@
 package br.com.guilhermedutra.rasmoo.restaurante.dao;
 
-import br.com.guilhermedutra.rasmoo.restaurante.entity.Cardapio;
 import br.com.guilhermedutra.rasmoo.restaurante.entity.Categoria;
 
 import javax.persistence.EntityManager;
@@ -14,9 +13,8 @@ public class CategoriaDao {
         this.entityManager = entityManager;
     }
 
-    public String cadastrar(final Categoria categoria){
+    public void cadastrar(final Categoria categoria){
         this.entityManager.persist(categoria);
-        return "Entidade cadastrada: " + categoria;
     }
 
     public Categoria consultarPorId(final Integer id){
