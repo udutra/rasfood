@@ -25,13 +25,17 @@ public class OrdemService {
 
         OrdemDao ordemDao = new OrdemDao(entityManager);
 
-        Ordem ordem = ordemDao.consultarPorId(2);
+        Ordem ordem = ordemDao.joinFetchCliente(2);
 
-        System.out.println("Valor total: " + ordem.getValorTotal());
+        //System.out.println("Valor total: " + ordem.getValorTotal());
 
-        System.out.println(ordemDao.consultarItensMaisVendidos());
+        //System.out.println(ordemDao.consultarItensMaisVendidos());
+
+        //System.out.println(ordem.getCliente().getNome());
 
         entityManager.getTransaction().commit();
         entityManager.close();
+
+        System.out.println("Cliente: " + ordem.getCliente().getNome());
     }
 }
