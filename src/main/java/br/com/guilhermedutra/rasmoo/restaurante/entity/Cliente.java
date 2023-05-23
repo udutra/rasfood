@@ -1,6 +1,8 @@
 package br.com.guilhermedutra.rasmoo.restaurante.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -9,15 +11,21 @@ public class Cliente {
     @Id
     private String cpf;
     private String nome;
-    private String cep;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Endereco> enderecoList = new ArrayList<>();
 
     public Cliente() {
     }
 
-    public Cliente(String cpf, String nome, String cep) {
+    public Cliente(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
-        this.cep = cep;
+    }
+
+    public void addEndereco(Endereco endereco){
+        endereco.setCliente(this);
+        this.enderecoList.add(endereco);
     }
 
     public String getCpf() {
@@ -36,16 +44,16 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCep() {
-        return cep;
+    public List<Endereco> getEnderecoList() {
+        return enderecoList;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setEnderecoList(List<Endereco> enderecoList) {
+        this.enderecoList = enderecoList;
     }
 
     @Override
     public String toString() {
-        return "Cliente{ cpf: " + getCpf() +", nome: " + getNome() + ", cep: " + getCep() + "}";
+        return "cpf: " + getCpf() +", nome: " + getNome() + " , endereço: " + getEnderecoList();
     }
 }

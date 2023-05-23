@@ -91,7 +91,7 @@ public class Cardapio {
 
     @Override
     public String toString() {
-        return "Prato{id: " + getId() + ", nome: " + getNome() + ", descricao: " + getDescricao() + ", disponivel: " + isDisponivel() +
-                ", Categoria: " + getCategoria().getNome() + ", valor: " + getValor() + ", dataDeRegistro: " + getDataDeRegistro() + "}";
+        return "id: " + getId() + ", nome: " + getNome() + ", descricao: " + getDescricao() + ", disponivel: " + isDisponivel() +
+                ", Categoria: " + getCategoria().getNome() + ", valor: " + getValor() + ", dataDeRegistro: " + getDataDeRegistro();
     }
 }

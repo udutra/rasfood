@@ -89,6 +89,6 @@ public class Ordem {
 
     @Override
     public String toString() {
-        return "Ordem{ id: " + getId() + ", valorTotal: " + getValorTotal() + ", Data de Criação: " + getDataDeCriacao() + ", cliente: " + cliente + "}";
+        return "Ordem{ id: " + getId() + ", valorTotal: " + getValorTotal() + ", Data de Criação: " + getDataDeCriacao() + ", cliente: " + cliente + ", ordens: " + getOrdensCardapioList() + "}";
     }
 }

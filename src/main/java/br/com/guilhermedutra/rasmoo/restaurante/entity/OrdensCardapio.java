@@ -17,7 +17,8 @@ public class OrdensCardapio {
     @ManyToOne
     private Cardapio cardapio;
 
-    private BigDecimal valor;
+    @Column(name = "valor_de_registro")
+    private BigDecimal valorDeRegistro;
 
     private Integer quantidade;
 
@@ -27,7 +28,7 @@ public class OrdensCardapio {
     public OrdensCardapio(Cardapio cardapio, Integer quantidade) {
         this.cardapio = cardapio;
         this.quantidade = quantidade;
-        this.valor = cardapio.getValor();
+        this.valorDeRegistro = cardapio.getValor();
     }
 
     public void setId(Long id) {
@@ -54,12 +55,12 @@ public class OrdensCardapio {
         this.cardapio = cardapio;
     }
 
-    public BigDecimal getValor() {
-        return valor;
+    public BigDecimal getValorDeRegistro() {
+        return valorDeRegistro;
     }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
+    public void setValorDeRegistro(BigDecimal valorDeRegistro) {
+        this.valorDeRegistro = valorDeRegistro;
     }
 
     public Integer getQuantidade() {
@@ -72,6 +73,6 @@ public class OrdensCardapio {
 
     @Override
     public String toString() {
-        return "OrdensCardapio{ id: " + getId() + ", ordem:" + getOrdem() + ", cardapio:" + getCardapio() + ", valor:" + getValor() + ", quantidade: " + getQuantidade() + "}";
+        return "id: " + getId() + ", prato: " + getCardapio() + ", valor de registro: " + getValorDeRegistro() + ", quantidade: " + getQuantidade();
     }
 }
