@@ -1,12 +1,8 @@
 package br.com.guilhermedutra.rasmoo.restaurante.service.teste;
 
-import br.com.guilhermedutra.rasmoo.restaurante.dao.CardapioDao;
 import br.com.guilhermedutra.rasmoo.restaurante.dao.ClienteDao;
-import br.com.guilhermedutra.rasmoo.restaurante.dao.OrdemDao;
-import br.com.guilhermedutra.rasmoo.restaurante.entity.Cliente;
-import br.com.guilhermedutra.rasmoo.restaurante.entity.Endereco;
-import br.com.guilhermedutra.rasmoo.restaurante.entity.Ordem;
-import br.com.guilhermedutra.rasmoo.restaurante.entity.OrdensCardapio;
+import br.com.guilhermedutra.rasmoo.restaurante.dao.EnderecoDao;
+import br.com.guilhermedutra.rasmoo.restaurante.entity.ClienteId;
 import br.com.guilhermedutra.rasmoo.restaurante.util.CargaDeDadosUtil;
 import br.com.guilhermedutra.rasmoo.restaurante.util.JPAUtil;
 
@@ -23,9 +19,14 @@ public class OrdemService {
         CargaDeDadosUtil.cadastrarClientes(entityManager);
         CargaDeDadosUtil.cadastrarOrdensClientes(entityManager);
 
+        EnderecoDao enderecoDao = new EnderecoDao(entityManager);
+
+        System.out.println(enderecoDao.consultarClientes(null,null,"Lapa"));
+        System.out.println(enderecoDao.consultarClientesUsandoCriteria(null,null,"lapa"));
+
         ClienteDao clienteDao = new ClienteDao(entityManager);
 
-        System.out.println(clienteDao.consultarPorNome("Costa"));
+        System.out.println(clienteDao.consultarPorId(new ClienteId("111111111123", "tayane@email.com")));
 
         entityManager.getTransaction().commit();
         entityManager.close();
