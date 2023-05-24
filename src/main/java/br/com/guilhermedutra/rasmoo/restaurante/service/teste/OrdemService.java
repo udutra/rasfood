@@ -28,6 +28,9 @@ public class OrdemService {
 
         System.out.println(clienteDao.consultarPorId(new ClienteId("111111111123", "tayane@email.com")));
 
+
+        System.out.println(clienteDao.consultarPorNome("Maria"));
+
         entityManager.getTransaction().commit();
         entityManager.close();
 
